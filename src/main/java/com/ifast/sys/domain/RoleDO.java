@@ -1,0 +1,105 @@
+package com.ifast.sys.domain;
+
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableName;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+/**
+ * <pre>
+ * </pre>
+ * <small> 2018年3月23日 | Aron</small>
+ */
+@TableName("sys_role")
+public class RoleDO {
+
+    private Long id;
+    //角色名称
+    private String roleName;
+    //角色符号
+    private String roleSign;
+    //备注
+    private String remark;
+    //创建id
+    private Long userIdCreate;
+    //创建时间
+    private Timestamp gmtCreate;
+    //操作时间
+    private Timestamp gmtModified;
+    //拥有的菜单id
+    @TableField(exist = false)
+    private List<Long> menuIds;
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getRoleSign() {
+        return roleSign;
+    }
+
+    public void setRoleSign(String roleSign) {
+        this.roleSign = roleSign;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public Long getUserIdCreate() {
+        return userIdCreate;
+    }
+
+    public void setUserIdCreate(Long userIdCreate) {
+        this.userIdCreate = userIdCreate;
+    }
+
+    public Timestamp getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(Timestamp gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Timestamp getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Timestamp gmtModified) {
+        this.gmtModified = gmtModified;
+    }
+
+    public List<Long> getMenuIds() {
+        return menuIds;
+    }
+
+    public void setMenuIds(List<Long> menuIds) {
+        this.menuIds = menuIds;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "RoleDO [id=" + id + ", roleName=" + roleName + ", roleSign=" + roleSign + ", remark=" + remark
+                + ", userIdCreate=" + userIdCreate + ", gmtCreate=" + gmtCreate + ", gmtModified=" + gmtModified
+                + ", menuIds=" + menuIds + "]";
+    }
+
+}
