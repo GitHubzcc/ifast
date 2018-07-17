@@ -53,13 +53,18 @@ public class CrawlerMain {
         //初始化返回值
         int result = 1;
         //网站首页地址
-        String homeUrl = "https://javlog.com/cn";
+        //String homeUrl = "https://javlog.com/cn";
+        String homeUrl = "https://www.zhihu.com";
         // 接口地址
-        String url = "http://www.87g.com/index.php?m=content&c=content_ajax&a=picture_page&siteid=1&catid=35&page="
-                + page;
+        //String url = "https://javlog.com/cn/page/1";
+        String url = "https://www.zhihu.com/api/v3/feed/topstory?action_feed=True&limit=7&session_token=0350c741c43b767d3c9457cceb7ac158&action=down&after_id=13&desktop=true";
         System.out.println("当前爬取第" + page + "页数据");
         //访问接口
         JSONObject resultjson = CrawlerUtil.getReturnJson(url);
+        System.out.println("当前爬取第" + page + "页数据" + resultjson);
+
+
+
         if (resultjson != null) {
             //获取其value值
             Collection<Object> jsonList = resultjson.values();

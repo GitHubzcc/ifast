@@ -1,6 +1,5 @@
 package com.ifast.Crawler.Util;
 
-import com.alibaba.fastjson.JSONObject;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -10,11 +9,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import com.alibaba.fastjson.JSONObject;
+
 public class CrawlerUtil {
     //访问接口，返回json封装的数据格式
     public static JSONObject getReturnJson(String url) {
         try {
             URL httpUrl = new URL(url);
+            httpUrl.openConnection().setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
             BufferedReader in = new BufferedReader(new InputStreamReader(httpUrl.openStream(), "UTF-8"));
             String line = null;
             String content = "";
